@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{71EE1840-C2F2-4E2E-B962-7FBA9E6E80CD}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>FrapeSchedSim</AssemblyName>
+    <ApplicationIcon>..\soft_drink.ico</ApplicationIcon>
+    <RootNamespace>FrapeSchedSim</RootNamespace>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Mono.Posix" />
+    <Reference Include="gtk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <Reference Include="gdk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <Reference Include="glib-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <Reference Include="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <Reference Include="pango-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Frapes, Version=1.0.3488.41331, Culture=neutral, PublicKeyToken=null">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Frapes\Frapes\bin\Debug\Frapes.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gtk-gui\gui.stetic">
+      <LogicalName>gui.stetic</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Icons\soft_drink_128.png">
+      <DeployService-Deploy>true</DeployService-Deploy>
+      <Gettext-ScanForTranslations>false</Gettext-ScanForTranslations>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Icons\soft_drink_256.png">
+      <DeployService-Deploy>true</DeployService-Deploy>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gtk-gui\generated.cs" />
+    <Compile Include="MainWindow.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="gtk-gui\FrapeSchedSim.MainWindow.cs" />
+    <Compile Include="AddProcessDialog.cs" />
+    <Compile Include="gtk-gui\FrapeSchedSim.AddProcessDialog.cs" />
+    <Compile Include="AddNodeDialog.cs" />
+    <Compile Include="gtk-gui\FrapeSchedSim.AddNodeDialog.cs" />
+    <Compile Include="SimulatorInterface.cs" />
+    <Compile Include="SchedPlan.cs" />
+    <Compile Include="SchedPlanResult.cs" />
+    <Compile Include="AboutDialog.cs" />
+    <Compile Include="gtk-gui\FrapeSchedSim.AboutDialog.cs" />
+    <Compile Include="InitialProcessState.cs" />
+    <Compile Include="ProcessQueueView.cs" />
+    <Compile Include="SchedPlanPanel.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
